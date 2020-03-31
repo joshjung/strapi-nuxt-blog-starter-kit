@@ -1,0 +1,23 @@
+query Posts {
+  blogPosts(where: { public: true }) {
+    id
+    title
+    description
+    published_at
+    show_in_series_only
+    use_default_post_background
+    author {
+      id
+      username
+    }
+    background_color
+    foreground_color
+    show_description
+    image_header {
+      url
+    }
+    blog_post_categories {
+      name
+    }
+  }
+}

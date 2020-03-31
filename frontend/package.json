@@ -1,0 +1,46 @@
+{
+  "name": "my-blog-backend",
+  "version": "1.0.0",
+  "description": "My personal blog",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "start:docker:prod": "cross-env NODE_ENV=production node server/index.js",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@nuxtjs/apollo": "^4.0.0-rc19",
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/bulma": "^1.2.1",
+    "@nuxtjs/dotenv": "^1.4.0",
+    "@nuxtjs/markdownit": "^1.2.9",
+    "cross-env": "^5.2.0",
+    "dotenv": "^8.2.0",
+    "find-config": "^1.0.0",
+    "graphql": "^14.6.0",
+    "koa": "^2.6.2",
+    "moment": "^2.24.0",
+    "node-sass": "^4.13.1",
+    "nuxt": "^2.0.0",
+    "prismjs": "^1.19.0",
+    "sass-loader": "^8.0.2",
+    "uikit": "^3.3.6",
+    "vue-meta": "^2.3.3"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^2.0.0",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "@vue/test-utils": "^1.0.0-beta.27",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
+    "eslint": "^6.1.0",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "jest": "^24.1.0",
+    "nodemon": "^1.18.9",
+    "vue-jest": "^4.0.0-0"
+  }
+}

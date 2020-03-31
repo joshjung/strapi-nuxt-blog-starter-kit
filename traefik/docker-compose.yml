@@ -1,0 +1,36 @@
+version: '3.7'
+
+networks:
+  traefik-proxy-network:
+    name: proxy-net
+
+services:
+  traefik:
+    image: traefik:v1.7
+    networks:
+      - traefik-proxy-network
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    labels:
+      - "traefik.frontend.rule=Host:${TRAEFIK_DASHBOARD_DOMAIN}"
+      - traefik.docker.network:proxy-net
+      - traefik.port=8080
+      - traefik.enable=true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik:/etc/traefik
+    command: >
+      --docker
+      --docker.watch
+      --docker.exposedbydefault=false
+      --api
+      --logLevel=INFO
+      --acme
+      --acme.email=${EMAIL}
+      --acme.storage="/etc/traefik/acme.json"
+      --acme.entrypoint=https
+      --acme.tlsChallenge
+      --acme.onhostrule=true
+      --acme.acmelogging=true

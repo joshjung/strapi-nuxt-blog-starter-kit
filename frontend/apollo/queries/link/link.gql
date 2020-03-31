@@ -1,0 +1,12 @@
+query Link($id: ID!) {
+  link(id: $id) {
+    id
+    title
+    description
+    url
+    target
+    icon {
+      url
+    }
+  }
+}

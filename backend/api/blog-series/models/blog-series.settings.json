@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "blog_series",
+  "info": {
+    "name": "Blog Series"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "blog_posts": {
+      "via": "blog_series",
+      "collection": "blog-post"
+    },
+    "blog_post_categories": {
+      "collection": "blog-post-category",
+      "via": "blog_series",
+      "dominant": true
+    },
+    "image_header": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "public": {
+      "type": "boolean"
+    },
+    "published_at": {
+      "type": "datetime"
+    },
+    "authors": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "blog_series",
+      "dominant": true
+    },
+    "background_color": {
+      "type": "string"
+    }
+  }
+}

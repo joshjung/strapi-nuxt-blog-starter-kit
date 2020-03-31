@@ -1,0 +1,17 @@
+query Category($id: ID!){
+  blogPostCategory(id: $id) {
+    name
+    blog_posts {
+      id
+      title
+      background_color
+      foreground_color
+      description
+      use_default_post_background
+      show_description
+      image_header {
+        url
+      }
+    }
+  }
+}

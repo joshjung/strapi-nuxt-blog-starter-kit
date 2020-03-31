@@ -1,0 +1,28 @@
+query BlogPostSeries {
+  blogSeries(where: { public: true }) {
+    id
+    title
+    description
+    published_at
+    background_color
+    authors {
+      id
+      username
+    }
+    image_header {
+      url
+    }
+    blog_post_categories {
+      name
+    }
+    blog_posts {
+      id
+      title
+      public
+      use_default_post_background
+      show_description
+      show_in_series_only
+      blog_series_order
+    }
+  }
+}

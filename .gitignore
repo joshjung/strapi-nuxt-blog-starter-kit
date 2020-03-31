@@ -1,0 +1,7 @@
+db
+.vscode
+secret
+prod_db.dump
+.env
+.env.prod*
+.env.stag*

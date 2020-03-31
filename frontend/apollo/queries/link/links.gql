@@ -1,0 +1,12 @@
+query Links($key: String) {
+  links(where: { key: $key }) {
+    id
+    title
+    description
+    url
+    target
+    icon {
+      url
+    }
+  }
+}

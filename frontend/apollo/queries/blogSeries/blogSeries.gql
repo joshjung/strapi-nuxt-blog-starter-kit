@@ -1,0 +1,33 @@
+query BlogPostSeries($id: ID!) {
+  blogSery(id: $id) {
+    id
+    title
+    description
+    published_at
+    background_color
+    authors {
+      id
+      username
+    }
+    image_header {
+      url
+    }
+    blog_post_categories {
+      name
+    }
+    blog_posts {
+      id
+      title
+      show_description
+      description
+      background_color
+      foreground_color
+      use_default_post_background
+      blog_series_order
+      image_header {
+        url
+      }
+      show_in_series_only
+    }
+  }
+}

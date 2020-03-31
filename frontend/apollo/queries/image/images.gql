@@ -1,0 +1,11 @@
+query Images($target: String) {
+  images(where: { target: $target }) {
+    id
+    title
+    description
+    target
+    image {
+      url
+    }
+  }
+}

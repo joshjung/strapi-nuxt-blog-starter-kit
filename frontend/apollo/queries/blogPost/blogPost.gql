@@ -1,0 +1,27 @@
+query BlogPosts($id: ID!) {  
+  blogPost(id: $id) {
+    id
+    title
+    description
+    content
+    published_at
+    show_in_series_only
+    use_default_post_background
+    background_color
+    foreground_color
+    show_description
+    image_header {
+      url
+    }
+    links {
+      id
+      title
+      description
+      url
+      target
+      icon {
+        url
+      }
+    }
+  }
+}

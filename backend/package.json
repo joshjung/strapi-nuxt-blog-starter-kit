@@ -1,0 +1,47 @@
+{
+  "name": "my-blog-backend",
+  "private": true,
+  "version": "0.1.0",
+  "description": "My personal blog",
+  "scripts": {
+    "develop": "strapi develop",
+    "build": "strapi build",
+    "strapi": "strapi",
+    "debug": "node --inspect=0.0.0.0:9229 ./node_modules/strapi/bin/strapi.js develop",
+    "dev:docker": "node --inspect=0.0.0.0 server",
+    "start": "strapi start",
+    "start:docker:prod": "strapi build && strapi start"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "knex": "<0.20.0",
+    "pg": "^7.18.2",
+    "sqlite3": "latest",
+    "strapi": "3.0.0-beta.19.3",
+    "strapi-admin": "3.0.0-beta.19.3",
+    "strapi-connector-bookshelf": "3.0.0-beta.19.3",
+    "strapi-plugin-content-manager": "3.0.0-beta.19.3",
+    "strapi-plugin-content-type-builder": "3.0.0-beta.19.3",
+    "strapi-plugin-email": "3.0.0-beta.19.3",
+    "strapi-plugin-graphql": "3.0.0-beta.19.3",
+    "strapi-plugin-upload": "3.0.0-beta.19.3",
+    "strapi-plugin-users-permissions": "3.0.0-beta.19.3",
+    "strapi-provider-upload-aws-s3": "^3.0.0-alpha.26.2",
+    "strapi-utils": "3.0.0-beta.19.3",
+    "dotenv": "^6.2.0",
+    "find-config": "^1.0.0"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "1080099e-fe08-4d8c-93b6-c5cc2da37d28"
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

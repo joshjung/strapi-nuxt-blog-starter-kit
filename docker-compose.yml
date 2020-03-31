@@ -1,0 +1,65 @@
+version: '3.7'
+
+networks:
+  traefik-proxy-net:
+    external: true
+    name: proxy-net
+
+services:
+  backend:
+    container_name: blog-backend
+    image: "${DOCKER_EXTERNAL_REPO}/${DOCKER_BACKEND_IMAGE}:${IMAGE_VERSION}"
+    ports:
+      - "${BACKEND_EXTERNAL_PORT}:1337"
+    volumes:
+      - ./app:/srv/app
+    depends_on:
+      - blog_postgres
+    networks:
+      - traefik-proxy-net
+    environment:
+      - NODE_ENV=production
+      - DATABASE_CLIENT=postgres
+      - DATABASE_HOST=blog_postgres
+      - "DATABASE_PORT=${POSTGRES_EXTERNAL_PORT}"
+      - "DATABASE_DB=${POSTGRES_DB}"
+      - "DATABASE_USERNAME=${POSTGRES_USER}"
+      - "DATABASE_PASSWORD=${POSTGRES_PASSWORD}"
+    stop_signal: SIGINT
+    labels:
+      - "traefik.frontend.rule=Host:${BLOG_API_DOMAIN}"
+      - traefik.docker.network:proxy-net
+      - traefik.enable=true
+
+  frontend:
+    container_name: blog-frontend
+    image: "${DOCKER_EXTERNAL_REPO}/${DOCKER_FRONTEND_IMAGE}:${IMAGE_VERSION}"
+    networks:
+      - traefik-proxy-net
+    ports:
+      - ${FRONTEND_EXTERNAL_PORT}:3000
+    volumes:
+      - ./app:/srv/app
+    environment:
+      - NODE_ENV=production
+    labels:
+      - "traefik.frontend.rule=Host:www.${$BLOG_DOMAIN},${$BLOG_DOMAIN}"
+      - traefik.docker.network:proxy-net
+      - traefik.enable=true
+
+  blog_postgres:
+    container_name: blog_postgres
+    image: postgres:latest
+    restart: always
+    ports:
+      - ${POSTGRES_EXTERNAL_PORT}:5432
+    networks:
+      - traefik-proxy-net
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    environment:
+      - "POSTGRES_USER=${POSTGRES_USER}"
+      - "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}"
+      - "POSTGRES_DB=${POSTGRES_DB}"
+    labels:
+      - traefik.enable=false

@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "blog_posts",
+  "info": {
+    "name": "Blog Post"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "users": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "blogPost"
+    },
+    "published_at": {
+      "type": "datetime"
+    },
+    "public": {
+      "type": "boolean"
+    },
+    "image_header": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "author": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "blog_post_categories": {
+      "collection": "blog-post-category",
+      "via": "blog_posts",
+      "dominant": true
+    },
+    "blog_series": {
+      "model": "blog-series",
+      "via": "blog_posts"
+    },
+    "blog_series_order": {
+      "type": "integer"
+    },
+    "links": {
+      "collection": "link",
+      "via": "blog_posts",
+      "dominant": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "show_in_series_only": {
+      "type": "boolean"
+    },
+    "background_color": {
+      "type": "string"
+    },
+    "show_description": {
+      "type": "boolean"
+    },
+    "foreground_color": {
+      "type": "string"
+    },
+    "use_default_post_background": {
+      "type": "boolean"
+    }
+  }
+}
