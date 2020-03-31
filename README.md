@@ -190,10 +190,14 @@ From the root folder:
 
     ./build-all.sh
 
-## 4. Pushing Docker Images to Public/Prive Repo
+## 4. Pushing Docker Images to Public/Private Repo
 
     source .env
     docker push $DOCKER_EXTERNAL_REPO/$DOCKER_BACKEND_IMAGE:latest && docker push $DOCKER_EXTERNAL_REPO/$DOCKER_FRONTEND_IMAGE:latest
+
+## 5. Deploying
+
+    ./deploy-to-production.sh
 
 # Contributing
 
