@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import 'prismjs';
 import Footer from "~/layouts/Footer";
 import blogPostsQuery from '~/apollo/queries/blogPost/blogPosts'
 import blogSeriessQuery from '~/apollo/queries/blogSeries/blogSeriess'

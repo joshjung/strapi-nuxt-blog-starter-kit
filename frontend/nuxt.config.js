@@ -10,7 +10,7 @@ console.log(` NOTE: STRAPI_BASE_URL will default to http://localhost:1337 if not
 console.log('-----------------------------------------------------------------');
 
 module.exports = {
-  mode: 'spa',
+  mode: 'universal',
   env: {
     IMAGE_BASE_URI: process.env.IMAGE_BASE_URI || ''
   },
