@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "inventory_system_items",
+  "info": {
+    "name": "Inventory Item Group"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "inventory_system": {
+      "model": "inventory-system"
+    },
+    "inventory_items": {
+      "via": "inventory_item_groups",
+      "collection": "inventory-item",
+      "dominant": true
+    }
+  }
+}

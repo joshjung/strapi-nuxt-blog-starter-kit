@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "inventory_items",
+  "info": {
+    "name": "Inventory Item"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "nickname": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "inventory_item_groups": {
+      "collection": "inventory-system-item",
+      "via": "inventory_items"
+    },
+    "inventory_systems": {
+      "collection": "inventory-system",
+      "via": "inventory_items",
+      "dominant": true
+    },
+    "inventory_resource": {
+      "model": "inventory-resource",
+      "via": "inventory_items"
+    }
+  }
+}

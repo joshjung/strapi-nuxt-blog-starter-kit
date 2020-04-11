@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/inventory-items",
+      "handler": "inventory-item.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/inventory-items/count",
+      "handler": "inventory-item.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/inventory-items/:id",
+      "handler": "inventory-item.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/inventory-items",
+      "handler": "inventory-item.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/inventory-items/:id",
+      "handler": "inventory-item.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/inventory-items/:id",
+      "handler": "inventory-item.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

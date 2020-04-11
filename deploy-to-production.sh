@@ -7,12 +7,12 @@ read_var() {
     echo ${VAR[1]}
 }
 
-BLOG_SERVER=$(read_var BLOG_SERVER .env)
-BLOG_HOME=$(read_var BLOG_HOME .env)
+SITE_SERVER=$(read_var SITE_SERVER .env)
+SITE_HOME=$(read_var SITE_HOME .env)
 DOCKER_EXTERNAL_REPO=$(read_var DOCKER_EXTERNAL_REPO .env)
 DOCKER_BACKEND_IMAGE=$(read_var DOCKER_BACKEND_IMAGE .env)
 DOCKER_FRONTEND_IMAGE=$(read_var DOCKER_FRONTEND_IMAGE .env)
-BLOG_HOME=$(read_var BLOG_HOME .env)
+SITE_HOME=$(read_var SITE_HOME .env)
 
 echo "----------------------------------------------------------------------"
 echo "DID YOU FORGET TO PUSH YOUR DOCKER IMAGES? (CTRL+C to cancel deployment):"
@@ -23,23 +23,23 @@ sleep 3
 
 echo "Rsyncing some of the things (docker-compose.yml, start-in-production.sh, traefik)..."
 
-ssh $BLOG_SERVER << EOF
-  mkdir -p $BLOG_HOME
+ssh $SITE_SERVER << EOF
+  mkdir -p $SITE_HOME
 EOF
 
 # Start SH file -> AWS
-rsync -r -v ./start-in-production.sh $BLOG_SERVER:$BLOG_HOME
+rsync -r -v ./start-in-production.sh $SITE_SERVER:$SITE_HOME
 
 # docker-compose file -> AWS
-rsync -r -v ./docker-compose.yml $BLOG_SERVER:$BLOG_HOME
+rsync -r -v ./docker-compose.yml $SITE_SERVER:$SITE_HOME
 
 # traefik -> AWS
-rsync -r -v ./traefik $BLOG_SERVER:$BLOG_HOME
+rsync -r -v ./traefik $SITE_SERVER:$SITE_HOME
 
-echo "Running $BLOG_HOME/start-in-production.sh on server..."
+echo "Running $SITE_HOME/start-in-production.sh on server..."
 
-ssh $BLOG_SERVER << EOF
-  cd $BLOG_HOME
+ssh $SITE_SERVER << EOF
+  cd $SITE_HOME
   chmod +x start-in-production.sh
   ./start-in-production.sh
 EOF

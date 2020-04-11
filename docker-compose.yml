@@ -27,7 +27,7 @@ services:
       - "DATABASE_PASSWORD=${POSTGRES_PASSWORD}"
     stop_signal: SIGINT
     labels:
-      - "traefik.frontend.rule=Host:${BLOG_API_DOMAIN}"
+      - "traefik.frontend.rule=Host:${SITE_API_DOMAIN}"
       - traefik.docker.network:proxy-net
       - traefik.enable=true
 
@@ -43,7 +43,7 @@ services:
     environment:
       - NODE_ENV=production
     labels:
-      - "traefik.frontend.rule=Host:www.${$BLOG_DOMAIN},${$BLOG_DOMAIN}"
+      - "traefik.frontend.rule=Host:www.${$SITE_DOMAIN},${$SITE_DOMAIN}"
       - traefik.docker.network:proxy-net
       - traefik.enable=true
 

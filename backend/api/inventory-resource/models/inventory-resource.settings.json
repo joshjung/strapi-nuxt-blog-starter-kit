@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "inventory_resources",
+  "info": {
+    "name": "Inventory Resource"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "inventory_items": {
+      "via": "inventory_resource",
+      "collection": "inventory-item"
+    }
+  }
+}

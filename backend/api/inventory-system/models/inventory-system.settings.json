@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "inventory_systems",
+  "info": {
+    "name": "Inventory System"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "nickname": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "inventory_items": {
+      "via": "inventory_systems",
+      "collection": "inventory-item"
+    },
+    "projects": {
+      "collection": "project",
+      "via": "inventory_systems",
+      "dominant": true
+    }
+  }
+}
