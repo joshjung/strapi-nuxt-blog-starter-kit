@@ -59,6 +59,14 @@
       "via": "related",
       "plugin": "upload",
       "required": false
+    },
+    "blogPost": {
+      "via": "users",
+      "model": "blog-post"
+    },
+    "blog_series": {
+      "via": "authors",
+      "collection": "blog-series"
     }
   }
 }

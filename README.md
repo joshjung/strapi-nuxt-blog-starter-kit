@@ -171,7 +171,7 @@ Eventually you will want to setup S3 or something similar. When you do, you can 
 
 - Make sure that your `.env` file has all appropriate settings
 - Make sure that you have a docker repository. I recommend making a free one at [Docker Hub](https://hub.docker.com/).
-- Make sure you have proper `A` and `CNAME` records in your DNS settings for your domain name. You will need `CNAME` records for `SITE_DOMAIN`, `www.SITE_DOMAIN`, `SITE_API_DOMAIN`, and `TRAEFIK_DASHBOARD_DOMAIN`. See `.env` file for what you have chosen.
+- Make sure you have proper `A` and `CNAME` records in your DNS settings for your domain name. You will need `CNAME` records for `BLOG_DOMAIN`, `www.BLOG_DOMAIN`, `BLOG_API_DOMAIN`, and `TRAEFIK_DASHBOARD_DOMAIN`. See `.env` file for what you have chosen.
 - Make sure you have a server with at least *2 GB of RAM* and *8 GB of free disk space* and SSH access. You might be able to run more lean, but I would not recommend it.
 - Install Docker on your server (if not already installed)
 - Install Docker Compose on your server (if not already installed)

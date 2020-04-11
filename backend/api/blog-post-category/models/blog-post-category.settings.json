@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "blog_post_categories",
+  "info": {
+    "name": "Blog Post Category"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "blog_posts": {
+      "via": "blog_post_categories",
+      "collection": "blog-post"
+    },
+    "blog_series": {
+      "via": "blog_post_categories",
+      "collection": "blog-series"
+    }
+  }
+}

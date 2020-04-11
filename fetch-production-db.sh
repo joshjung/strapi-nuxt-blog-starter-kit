@@ -7,7 +7,7 @@ read_var() {
     echo ${VAR[1]}
 }
 
-SITE_IP=$(read_var SITE_IP .env)
+BLOG_IP=$(read_var BLOG_IP .env)
 POSTGRES_EXTERNAL_PORT=$(read_var POSTGRES_EXTERNAL_PORT .env)
 POSTGRES_USER=$(read_var POSTGRES_USER .env)
 POSTGRES_DB=$(read_var POSTGRES_DB .env)
@@ -22,7 +22,7 @@ echo " Recommend using a VPN, tunnel, or IP-specific "
 echo " firewall. You have been warned if you get hacked :D "
 echo "--------------------------------------------------"
 
-pg_dump -h $SITE_IP -p $POSTGRES_EXTERNAL_PORT -U $POSTGRES_USER $POSTGRES_DB > prod_db.dump
+pg_dump -h $BLOG_IP -p $POSTGRES_EXTERNAL_PORT -U $POSTGRES_USER $POSTGRES_DB > prod_db.dump
 
 echo "--------------------------------------------------"
 echo " Database fetched to prod_db.dump"

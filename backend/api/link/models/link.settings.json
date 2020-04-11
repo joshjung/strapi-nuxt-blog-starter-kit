@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "links",
+  "info": {
+    "name": "Link"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "description": {
+      "type": "richtext"
+    },
+    "url": {
+      "type": "string"
+    },
+    "key": {
+      "type": "string"
+    },
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "title": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "blog_posts": {
+      "via": "links",
+      "collection": "blog-post"
+    }
+  }
+}

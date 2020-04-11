@@ -1,7 +1,7 @@
 {
-  "name": "trackup-backend",
+  "name": "my-blog-backend",
   "version": "1.0.0",
-  "description": "Manage your software. All of it.",
+  "description": "My personal blog",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
