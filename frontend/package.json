@@ -29,7 +29,8 @@
     "prismjs": "^1.19.0",
     "sass-loader": "^8.0.2",
     "uikit": "^3.3.6",
-    "vue-meta": "^2.3.3"
+    "vue-meta": "^2.3.3",
+    "core-js": "^2.6.5"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
