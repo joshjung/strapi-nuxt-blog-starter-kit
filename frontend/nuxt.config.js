@@ -25,7 +25,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
       { hid: 'og:title', name: 'og:title', content: process.env.BLOG_TITLE },
       { hid: 'og:image', name: 'og:image', content: 'https://cdn.britannica.com/84/73184-004-E5A450B5/Sunflower-field-Fargo-North-Dakota.jpg' },
-      { hid: 'og:image', name: 'og:description', content: process.env.BLOG_DESCRIPTION },
+      { hid: 'og:image', name: 'og:description', content: process.env.BLOG_TITLE },
       { hid: 'og:image', name: 'og:url', content: 'https://www.' + process.env.BLOG_DOMAIN },
     ],
     script: [
