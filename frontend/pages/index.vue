@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="hero-image" v-if="hero_image">
+    <div class="hero-image">
       <ImageSingle target="hero_image" />
     </div>
     <div class="horizontal-section-wrapper">
