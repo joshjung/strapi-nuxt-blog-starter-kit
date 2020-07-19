@@ -6,8 +6,8 @@
       "settings": {
         "client": "postgres",
         "database": "${process.env.POSTGRES_DB || 'myblog'}",
-        "host": "${process.env.POSTGRES_HOST || '127.0.0.1'}",
-        "port": "${process.env.POSTGRES_EXTERNAL_PORT || 5432}",
+        "host": "blog_postgres",
+        "port": "5432",
         "username": "${process.env.POSTGRES_USER || 'postgres'}",
         "password": "${process.env.POSTGRES_PASSWORD || 'my_password_123'}"
       },
