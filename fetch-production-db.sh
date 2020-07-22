@@ -26,10 +26,10 @@ pg_dump -h $BLOG_IP -p $POSTGRES_EXTERNAL_PORT -U $POSTGRES_USER $POSTGRES_DB > 
 
 echo "--------------------------------------------------"
 echo " Database fetched to prod_db.dump"
-echo " Importing to local joshoncode..."
+echo " Importing to local $POSTGRES_DB..."
 echo "--------------------------------------------------"
 
-psql -U postgres -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = 'joshoncode';"
-psql -U postgres -c "drop database joshoncode"
-psql -U postgres -c "create database joshoncode"
-psql -U postgres joshoncode < prod_db.dump
+psql -U postgres -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$POSTGRES_DB';"
+psql -U postgres -c "drop database $POSTGRES_DB"
+psql -U postgres -c "create database $POSTGRES_DB"
+psql -U postgres $POSTGRES_DB < prod_db.dump
