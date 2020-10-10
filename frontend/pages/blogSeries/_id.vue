@@ -45,11 +45,11 @@
         return this.cachedBlogPostsSorted = (this.blogSery.blog_posts ? this.blogSery.blog_posts.sort((a, b) => a.blog_series_order > b.blog_series_order ? -1 : 1) : []);
       },
       publishedAtFormatted() {
-        if (!this.blogSery.published_at) {
+        if (!this.blogSery.published_date) {
           return '';
         }
 
-        return moment(this.blogSery.published_at).format('MMMM Do YYYY');
+        return moment(this.blogSery.published_date).format('MMMM Do YYYY');
       }
     },
     apollo: {

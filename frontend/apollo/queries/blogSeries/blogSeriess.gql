@@ -3,7 +3,7 @@ query BlogPostSeries {
     id
     title
     description
-    published_at
+    published_date
     background_color
     authors {
       id

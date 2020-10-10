@@ -12,7 +12,7 @@
             <div v-if="blogPost.postCategory" class="uk-text-uppercase">{{ blogPost.postCategory.name }}</div>
             <div class="text-float">
               <div class="blog-post-card-title">{{ blogPost.title }}</div>
-              <div class="blog-post-card-date" v-if="blogPost.published_at">{{ publishedAtFormatted(blogPost.published_at) }}</div>
+              <div class="blog-post-card-date" v-if="blogPost.published_date">{{ publishedAtFormatted(blogPost.published_date) }}</div>
             </div>
           </div>
           <div class="description" v-if="blogPost.show_description && blogPost.description" :style="{ 'color': blogPost.foreground_color }">
@@ -35,21 +35,21 @@
       }
     },
     methods: {
-      publishedAtFormatted(published_at) {
-        if (!published_at) {
+      publishedAtFormatted(published_date) {
+        if (!published_date) {
           return '';
         }
 
-        return moment(published_at).format('MMMM Do YYYY');
+        return moment(published_date).format('MMMM Do YYYY');
       }
     },
     computed: {
       
       blogPostsSorted() {
         return this.blogPosts.sort((a, b) => {
-          if (a.published_at && b.published_at) {
-            return new Date(a.published_at).getTime() > new Date(b.published_at).getTime() ? -1 : 1;
-          } else if (a.published_at) {
+          if (a.published_date && b.published_date) {
+            return new Date(a.published_date).getTime() > new Date(b.published_date).getTime() ? -1 : 1;
+          } else if (a.published_date) {
             return 1;
           }
           return -1;
