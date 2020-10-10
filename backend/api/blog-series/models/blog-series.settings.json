@@ -34,7 +34,7 @@
     "public": {
       "type": "boolean"
     },
-    "published_at": {
+    "published_date": {
       "type": "datetime"
     },
     "authors": {

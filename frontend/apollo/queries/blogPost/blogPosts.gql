@@ -3,7 +3,7 @@ query Posts {
     id
     title
     description
-    published_at
+    published_date
     show_in_series_only
     use_default_post_background
     author {

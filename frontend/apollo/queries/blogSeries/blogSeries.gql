@@ -3,7 +3,7 @@ query BlogPostSeries($id: ID!) {
     id
     title
     description
-    published_at
+    published_date
     background_color
     authors {
       id
