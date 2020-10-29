@@ -27,7 +27,7 @@
     "strapi": "^3.2.3",
     "strapi-admin": "^3.2.3",
     "strapi-connector-bookshelf": "^3.2.3",
-    "strapi-plugin-content-manager": "^3.2.3",
+    "strapi-plugin-content-manager": "^3.2.5",
     "strapi-plugin-content-type-builder": "^3.2.3",
     "strapi-plugin-email": "^3.2.3",
     "strapi-plugin-graphql": "^3.2.3",
