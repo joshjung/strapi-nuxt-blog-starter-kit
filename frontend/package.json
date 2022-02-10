@@ -24,7 +24,7 @@
     "graphql": "^14.6.0",
     "koa": "^2.6.2",
     "moment": "^2.24.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "nuxt": "^2.0.0",
     "prismjs": "^1.19.0",
     "sass-loader": "^8.0.2",
